@@ -1,0 +1,62 @@
+.footer {
+  margin-top: 40px;
+  background: rgba(0, 0, 0, 0.08);
+}
+.foot-title h2,
+.items-title h2 {
+  text-align: center;
+  padding: 30px 0;
+  font-weight: 700;
+  font-size: 28px;
+  color: rgba(0, 0, 0, 0.9);
+}
+.foot-form {
+  display: flex;
+  width: 600px;
+  margin: 0 auto;
+}
+.foot-form input {
+  outline: none;
+  padding: 20px;
+  width: 100%;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 30px;
+  color: rgb(95, 95, 95);
+  font-size: 18px;
+  box-shadow: 10px 0 40px 0 rgba(0, 0, 0, 0.15);
+}
+.foot-btn {
+  cursor: pointer;
+  padding: 0 30px;
+  flex-shrink: 0;
+  position: relative;
+  right: 118px;
+  top: 11px;
+  height: 40px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 18px;
+  background-color: rgb(255, 94, 0);
+}
+.foot-info {
+  margin: 5% 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.foot-rows {
+  display: flex;
+  justify-content: space-around;
+}
+.foot-row p {
+  padding: 10px 0;
+}
+.powered {
+  text-align: center;
+  padding: 20px 0;
+}
+.powered span {
+  color: rgb(255, 51, 0);
+}

@@ -1,0 +1,27 @@
+.cards-menu {
+  display: flex;
+  margin: 0 10% 0 10%;
+  justify-content: space-around;
+}
+.cards {
+  height: 275px;
+  margin: 10px 20px;
+  box-shadow: 10px 0 40px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  text-align: center;
+}
+.card-img {
+  width: 220px;
+  height: 275px;
+  border-radius: 10px;
+}
+.category-title {
+  width: 80%;
+  margin: 10% auto 40px auto;
+}
+.card-title {
+  position: relative;
+  top: -50%;
+  z-index: 2;
+  color: white;
+}

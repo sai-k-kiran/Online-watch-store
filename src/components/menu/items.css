@@ -1,0 +1,34 @@
+.items-menu {
+  display: flex;
+  margin: 0 10%;
+  justify-content: space-around;
+}
+.featured-item {
+  width: 210px;
+  height: 150px;
+}
+.item {
+  width: 210px;
+  height: 150px;
+  margin: 10px 20px;
+  box-shadow: 10px 0 40px 0 rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+.item-img {
+  width: 200px;
+  height: 140px;
+  border-radius: 10px;
+}
+.content {
+  width: 200px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.featured-title {
+  width: 80%;
+  margin: 40px auto;
+}
+.title {
+  font-size: 18px;
+}

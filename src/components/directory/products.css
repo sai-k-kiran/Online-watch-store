@@ -1,0 +1,33 @@
+.products-filter {
+  text-align: center;
+  margin: 5% auto;
+}
+.products-block {
+  width: 80%;
+  margin: 30px auto 5% auto;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 90px 30px;
+  align-items: center;
+}
+.products {
+  width: 350px;
+  height: 233px;
+}
+.products-grid a {
+  text-decoration: none;
+}
+.product-img {
+  width: 350px;
+  height: 233px;
+  border-radius: 10px;
+}
+.product-title {
+  text-decoration: none;
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: black;
+}
