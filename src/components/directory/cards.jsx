@@ -12,12 +12,14 @@ const Cards = ({title}) => {
             <div className='cards-menu'>
                 {categories.map(category => 
                     <div className='cards'>
-                        <Atropos className="card-item">
-                            <img className ='card-img' key={category.id}
-                            src={category.imageUrl} alt={category.title}/>
+                        <Atropos>
+                            <div className='overlayImg'>
+                                <img className ='card-img' key={category.id}
+                                src={category.imageUrl} alt={category.title}/>
+                            </div>
                         </Atropos >
                         <div className='card-title'>
-                                <h2>{category.title}</h2>
+                            <h2>{category.title}</h2>
                         </div>
                     </div>
                 )}

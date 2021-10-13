@@ -4,11 +4,9 @@ import Atropos from 'atropos/react/atropos-react.esm';
 import './items.css';
 
 const Item = ({ title,imageUrl}) => (
-    <div>
-      <Atropos className="featured-item" shadowOffset={20}>
+    <div className="item">
           <img className ='item-img' 
           src={imageUrl} alt={title}/> 
-      </Atropos>
       <div className='content'>
         <h1 className='title'>{title.toUpperCase()}</h1>
       </div>

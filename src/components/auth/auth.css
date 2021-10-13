@@ -1,0 +1,79 @@
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(200, 200, 200, 0.5);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  width: 500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+.loginContainer {
+  width: 500px;
+  height: 400px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modal-title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 20px;
+}
+.titleCloseBtn {
+  display: flex;
+  width: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+.modal-body {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+}
+input {
+  padding: 10px 60px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 30px;
+  border: 1px solid rgb(184, 184, 184);
+  outline: none;
+}
+.submit {
+  border: 1px solid black;
+  outline: none;
+  background-color: black;
+  color: white;
+  padding: 7px 14px;
+  border-radius: 30px;
+}
+.submit:hover {
+  border: 1px solid black;
+  outline: none;
+  background-color: white;
+  color: black;
+  padding: 7px 14px;
+  border-radius: 30px;
+  transition: ease 0.3s;
+}

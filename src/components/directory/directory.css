@@ -15,13 +15,21 @@
   height: 275px;
   border-radius: 10px;
 }
+.overlayImg {
+  width: 220px;
+  z-index: 2;
+  height: 275px;
+  background-color: rgba(58, 58, 58, 0.384);
+  border-radius: 10px;
+}
 .category-title {
   width: 80%;
   margin: 10% auto 40px auto;
 }
 .card-title {
   position: relative;
-  top: -50%;
+  top: -60%;
   z-index: 2;
   color: white;
+  font-size: 24px;
 }

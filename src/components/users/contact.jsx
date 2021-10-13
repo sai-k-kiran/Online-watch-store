@@ -1,6 +1,6 @@
 import React from 'react'
 import {MdLocationOn, MdSmartphone, MdEmail} from 'react-icons/md'
-import './login.css'
+import './contact.css'
 import Navbar from '../home/navbar'
 import Footer from '../home/footer'
 
