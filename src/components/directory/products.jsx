@@ -55,16 +55,16 @@ const Products = () => {
                 <h1>Lorem ipsum dolor </h1>
             </div>
             <div className='filter'>
+            <Filter count={menu.length} price={filter.price}
+                    color={filter.price} category={filter.category} productsMaterial={productsMaterial}
+                    filterProducts={filterProducts} sortProducts={sortProducts}/>
             </div> 
             <div className='products-block'>
                 <div className='products-grid'>
-                    <Filter count={menu.length} price={filter.price}
-                    color={filter.price} category={filter.category} productsMaterial={productsMaterial}
-                    filterProducts={filterProducts} sortProducts={sortProducts}/>
                     {menu.map(watch => (
                         <Link to={`/product/${watch.id}`} >
-                        <div className='products'>
-                            <img className ='product-img' key={watch.id}
+                        <div className='products' key={watch.id}>
+                            <img className ='product-img'
                             src={watch.imageUrl} alt={watch.title}/>
                             <div className='product-title'>
                                 <h2>{watch.title}</h2>

@@ -1,4 +1,5 @@
 import React from 'react';
+import './products.css'
 import { categories } from '../data/jsondata';
 
 const Filter = ({count, color,price, category, filterProducts, sortProducts, productsMaterial}) => {
@@ -20,7 +21,7 @@ const Filter = ({count, color,price, category, filterProducts, sortProducts, pro
                     <option value="Elastic">Elastic Strap</option>
                 </select>
          </div> 
-         <div className='filter-size'> 
+         <div className='filter-sort'> 
          <label>Filter by Color </label>
                 <select className='filter-menu' value={color} onChange={filterProducts}>
                     <option value="">All</option>

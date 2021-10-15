@@ -7,6 +7,7 @@ import Contact from './components/users/contact';
 import Register from './components/auth/register';
 import Login from './components/auth/login';
 import Product from './components/directory/product';
+import Cart from './components/menu/cart'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/contact' component={Contact} />
           <Route path='/register' component={Register} />
           <Route path='/signin' component={Login} />
+          <Route path='/cart' component={Cart} />
         </Switch>
       </BrowserRouter>
       

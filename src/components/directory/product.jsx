@@ -7,9 +7,10 @@ import Footer from '../home/footer'
 
 function Product() {
     const { id } = useParams()
-    const product = items[id -1]
-    
-    console.log(product)
+    const [cart, setCart] = useState(0)
+    const product = items[id - 1]
+
+    console.log(cart)
     return (
         <>
          <Navbar /> 
@@ -25,7 +26,7 @@ function Product() {
                 <h3>Strap material : {product.strap}</h3>
                 <h3>Origin Country: {product.country}</h3>
                 <h1>{product.price} £</h1>
-                <button className='btn'>Add to cart</button>
+                <button className='btn' onClick={() => setCart(cart + 1)}>Add to cart</button>
                 <button className='btn buy'>Buy</button>
              </div>
          </div>

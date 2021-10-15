@@ -13,17 +13,22 @@
   align-items: center;
 }
 .products {
-  width: 350px;
   height: 233px;
 }
 .products-grid a {
   text-decoration: none;
 }
 .product-img {
+  display: flex; /* For centering in the product block */
   width: 350px;
   height: 233px;
   border-radius: 10px;
   box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+  transition: ease 0.4s;
+}
+.product-img:hover {
+  transform: scale(1.08);
 }
 .product-title {
   text-decoration: none;
@@ -77,6 +82,8 @@
   padding: 7px 14px;
   border-radius: 30px;
   margin: 20px 20px 20px 0;
+  cursor: pointer;
+  transition: ease 0.3s;
 }
 .buy {
   background-color: rgb(3, 130, 248);
@@ -88,4 +95,15 @@
 }
 .buy:hover {
   color: rgb(3, 130, 248);
+}
+.filter {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.filter select {
+  width: 120px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  appearance: none;
 }

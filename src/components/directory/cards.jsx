@@ -33,11 +33,11 @@ const Cards = ({title}) => {
             </div>
             <div ref={ref} className='cards-menu'>
                 {categories.map(category => 
-                    <motion.div className='cards'
-                    animate={animation}>
+                    <motion.div className='cards' 
+                    animate={animation} key={category.id}>
                         <Atropos>
                             <div className='overlayImg'>
-                                <img className ='card-img' key={category.id}
+                                <img className ='card-img'
                                 src={category.imageUrl} alt={category.title}/>
                             </div>
                         </Atropos >
