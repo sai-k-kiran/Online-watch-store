@@ -66,10 +66,10 @@ const items = [
         id: 2,
         category: 'casual',
         maker: 'Emporio Armani',
-        country: 'Italy',
+        country: 'UK',
         strap: 'Steel',
         color: 'Silver',
-        price: 179
+        price: 32010
     },
     {
       title: 'Corum lab 02',

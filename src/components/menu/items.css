@@ -7,10 +7,13 @@
 .item {
   width: 210px;
   height: 150px;
-
   border-radius: 10px;
   box-shadow: 10px 0 40px 0 rgba(0, 0, 0, 0.15);
   text-align: center;
+  transition: transform 0.3s;
+}
+.item:hover {
+  transform: scale(1.08);
 }
 .item-img {
   width: 200px;

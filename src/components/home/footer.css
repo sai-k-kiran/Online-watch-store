@@ -38,7 +38,11 @@
   border-radius: 30px;
   color: white;
   font-size: 18px;
-  background-color: rgb(255, 94, 0);
+  background-image: linear-gradient(
+    to right,
+    rgb(3, 130, 248),
+    rgb(1, 83, 160)
+  );
 }
 .foot-info {
   margin: 5% 0;

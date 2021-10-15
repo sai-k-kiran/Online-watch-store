@@ -6,6 +6,7 @@ import {BrowserRouter, Switch, Route } from 'react-router-dom'
 import Contact from './components/users/contact';
 import Register from './components/auth/register';
 import Login from './components/auth/login';
+import Product from './components/directory/product';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/products' component={Products} />
+          <Route path='/product/:id' component={Product} />
           <Route path='/contact' component={Contact} />
           <Route path='/register' component={Register} />
           <Route path='/signin' component={Login} />

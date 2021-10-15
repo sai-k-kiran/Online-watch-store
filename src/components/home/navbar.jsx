@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './home.css'
-import Logo from './python.jpg'
+import Logo from '../images/python.jpg'
 import { Link } from 'react-router-dom';
 import {FiSearch} from 'react-icons/fi'
 import {GoThreeBars} from 'react-icons/go'

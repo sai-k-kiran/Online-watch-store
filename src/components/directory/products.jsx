@@ -62,12 +62,10 @@ const Products = () => {
                     color={filter.price} category={filter.category} productsMaterial={productsMaterial}
                     filterProducts={filterProducts} sortProducts={sortProducts}/>
                     {menu.map(watch => (
-                        <Link to={`/products/${watch.id}`} >
+                        <Link to={`/product/${watch.id}`} >
                         <div className='products'>
-                            <Atropos className="product-item">
-                                <img className ='product-img' key={watch.id}
-                                src={watch.imageUrl} alt={watch.title}/>
-                            </Atropos >
+                            <img className ='product-img' key={watch.id}
+                            src={watch.imageUrl} alt={watch.title}/>
                             <div className='product-title'>
                                 <h2>{watch.title}</h2>
                             </div>
