@@ -7,7 +7,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .modalContainer {
   width: 500px;
   height: 500px;
@@ -28,7 +27,6 @@
   flex-direction: column;
   padding: 25px;
 }
-
 .modal-title {
   display: inline-block;
   text-align: center;
@@ -45,12 +43,17 @@
   cursor: pointer;
 }
 .modal-body {
-  flex: 50%;
+  /* flex: 50%; */
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.7rem;
   text-align: center;
+}
+.modal-form {
+  margin-top: 20px;
+  display: block;
+  height: 90%;
 }
 input {
   padding: 10px 60px;
@@ -61,19 +64,65 @@ input {
   outline: none;
 }
 .submit {
+  width: 70%;
+  margin-bottom: 20px;
   border: 1px solid black;
   outline: none;
   background-color: black;
   color: white;
-  padding: 7px 14px;
+  padding: 10px 80px;
   border-radius: 30px;
+  cursor: pointer;
 }
-.submit:hover {
+.register {
+  width: 100%;
+  margin-bottom: 20px;
   border: 1px solid black;
   outline: none;
+  background-color: black;
+  color: white;
+  padding: 10px 80px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.submit:hover {
   background-color: white;
   color: black;
-  padding: 7px 14px;
-  border-radius: 30px;
   transition: ease 0.3s;
+}
+.googleAuth {
+  display: inline-block;
+  width: 70%;
+  background-color: white;
+  padding: 10px 40px;
+  border-radius: 30px;
+  outline: none;
+  border: 1px solid rgb(184, 184, 184);
+  cursor: pointer;
+}
+.g-icon {
+  position: absolute;
+  margin: -3px 0 0 10px;
+  font-size: 20px;
+}
+@media screen and (max-width: 725px) {
+  .modalBackground {
+    background-color: white;
+  }
+  .modalContainer {
+    width: 300px;
+    box-shadow: none;
+  }
+  .loginContainer {
+    width: 300px;
+    box-shadow: none;
+  }
+  input {
+    width: 100%;
+    padding: 8px 10px;
+  }
+  .submit,
+  .googleAuth {
+    width: 100%;
+  }
 }

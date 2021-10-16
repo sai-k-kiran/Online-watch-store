@@ -11,7 +11,9 @@ import { Link } from 'react-router-dom';
 const Products = () => {
     const [menu, setMenu] = useState(items);
     const [filter, setFilter] = useState({price:'', category:'', color: ''})
+    const [hovered, setHovered] = useState(false)
 
+    console.log(hovered)
     const sortProducts = (e) => {
         const filter = e.target.value
         const newProducts = items.slice().sort((a,b) => (
@@ -68,6 +70,9 @@ const Products = () => {
                             src={watch.imageUrl} alt={watch.title}/>
                             <div className='product-title'>
                                 <h2>{watch.title}</h2>
+                            </div>
+                            <div className='addToCart'>
+                                <button className='btn add'>Add to cart</button>
                             </div>
                         </div>
                         </Link>

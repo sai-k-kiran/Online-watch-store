@@ -1,14 +1,27 @@
 import React, { useState } from 'react';
 import './home.css'
 import Logo from '../images/python.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {FiSearch} from 'react-icons/fi'
 import {GoThreeBars} from 'react-icons/go'
-import {IoBagHandleOutline} from 'react-icons/io5'
+import CartIcon from '../cart/cartIcon';
+import CartDropdown from '../cart/cartDropdown';
+import { useAuth } from '../auth/authContext';
+import { connect } from 'react-redux';
 
-const Navbar = () => {
+const Navbar = ({hidden}) => {
     const [query, setQuery] = useState('')
+    const {currentuser, logout} = useAuth()
+    const history = useHistory()
 
+    async function handleLogout() {
+        try{
+            await logout()
+            history.push('/')
+        } catch {
+            alert("Failed to log out")
+        }
+    } 
     return ( 
         <div className='navigation'>
             <Link to='/'>
@@ -37,16 +50,21 @@ const Navbar = () => {
                 <div className='nav-menu'>
                     <ul>
                         <li>
-                            <Link to='/signin'>Sign In</Link>
+                            {currentuser ? null : <Link to='/signin'>Sign In</Link>}
                         </li>
                         <li>
-                            <Link to='/register'>Register</Link>
+                            {currentuser ? null : <Link to='/register'>Register</Link>}
                         </li>
                         <li>
-                            <Link to='/cart'><IoBagHandleOutline /></Link>
+                            {currentuser ? <Link className='logout_btn' onClick={handleLogout}>
+                                Log out</Link> : null}
+                        </li>
+                        <li>
+                            {currentuser ? <CartIcon /> : null}
                         </li>
                     </ul>
                 </div>
+                {hidden ? null : <CartDropdown />}
                 <div className='bars'>
                     <GoThreeBars />
                 </div>
@@ -54,5 +72,8 @@ const Navbar = () => {
         </div>
      )
 }
+const mapStateToProps = ({cart: {hidden}}) => ({
+    hidden
+})
  
-export default Navbar;
+export default connect(mapStateToProps)(Navbar);

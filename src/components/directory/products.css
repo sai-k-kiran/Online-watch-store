@@ -14,6 +14,7 @@
 }
 .products {
   height: 233px;
+  position: relative;
 }
 .products-grid a {
   text-decoration: none;
@@ -29,6 +30,7 @@
 }
 .product-img:hover {
   transform: scale(1.08);
+  opacity: 0.5;
 }
 .product-title {
   text-decoration: none;
@@ -95,6 +97,29 @@
 }
 .buy:hover {
   color: rgb(3, 130, 248);
+}
+.addToCart {
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  border-radius: 10px;
+  height: 233px;
+  width: 350px;
+  z-index: 2;
+  transition: ease 400ms;
+}
+.add {
+  position: absolute;
+  top: 76px;
+  left: 130px;
+  display: none;
+}
+.addToCart:hover {
+  background: rgba(0, 157, 196, 0.527);
+}
+.addToCart:hover .add {
+  display: block;
+  transition: 400ms;
 }
 .filter {
   display: flex;

@@ -1,0 +1,30 @@
+.cart-icon {
+  font-size: 35px;
+  margin: -10px 0px;
+  cursor: pointer;
+}
+.cart-number {
+  color: rgb(3, 130, 248);
+  padding: 5px 5px;
+}
+.cart-dropdown {
+  position: absolute;
+  width: 280px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid black;
+  background-color: white;
+  top: 80px;
+  right: 20px;
+  z-index: 5;
+}
+.drop-items {
+  display: flex;
+  flex-direction: column;
+  height: 380px;
+  margin: 0 auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
