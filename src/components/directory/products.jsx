@@ -1,19 +1,15 @@
 import React, {useState} from 'react';
 import './products.css'
-import Atropos from 'atropos/react/atropos-react.esm';
-import 'atropos/atropos.css'
 import {items} from '../data/jsondata'
 import Navbar from '../home/navbar'
 import Footer from '../home/footer'
 import Filter from './filter';
-import { Link } from 'react-router-dom';    
+import { Link } from 'react-router-dom';  
 
-const Products = () => {
+const Products = ({addItem}) => {
     const [menu, setMenu] = useState(items);
     const [filter, setFilter] = useState({price:'', category:'', color: ''})
-    const [hovered, setHovered] = useState(false)
 
-    console.log(hovered)
     const sortProducts = (e) => {
         const filter = e.target.value
         const newProducts = items.slice().sort((a,b) => (
@@ -72,7 +68,6 @@ const Products = () => {
                                 <h2>{watch.title}</h2>
                             </div>
                             <div className='addToCart'>
-                                <button className='btn add'>Add to cart</button>
                             </div>
                         </div>
                         </Link>
@@ -83,5 +78,5 @@ const Products = () => {
         </>
      )
 }
- 
+
 export default Products;

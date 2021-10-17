@@ -1,16 +1,28 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import './products.css'
 import {items} from '../data/jsondata'
 import { useParams } from 'react-router'
 import Navbar from '../home/navbar'
 import Footer from '../home/footer'
+import {auth, db} from '../firebase/firebaseUtils'
 
 function Product() {
     const { id } = useParams()
-    const [cart, setCart] = useState(0)
     const product = items[id - 1]
 
-    console.log(cart)
+    const addToCart = (item) => {
+        auth.onAuthStateChanged(user => {
+             db.collection(user.email).add({
+                id: item.id,
+                name: item.title,
+                image: item.imageUrl,
+                price: item.price
+            }).then(()=>{
+                alert('Item added to cart')
+            }) 
+        })
+      }
+
     return (
         <>
          <Navbar /> 
@@ -26,8 +38,7 @@ function Product() {
                 <h3>Strap material : {product.strap}</h3>
                 <h3>Origin Country: {product.country}</h3>
                 <h1>{product.price} £</h1>
-                <button className='btn' onClick={() => setCart(cart + 1)}>Add to cart</button>
-                <button className='btn buy'>Buy</button>
+                <button className='btn' onClick={()=> addToCart(product)}>Add to cart</button>
              </div>
          </div>
          <Footer />

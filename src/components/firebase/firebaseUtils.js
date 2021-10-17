@@ -15,6 +15,7 @@ firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
 export const db = firebase.firestore();
+db.settings({timestampsInSnapshots: true, merge: true });
 
 const provider = new firebase.auth.GoogleAuthProvider()
 provider.setCustomParameters({prompt: 'select_account'})

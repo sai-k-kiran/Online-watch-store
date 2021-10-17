@@ -56,7 +56,7 @@ const Navbar = ({hidden}) => {
                             {currentuser ? null : <Link to='/register'>Register</Link>}
                         </li>
                         <li>
-                            {currentuser ? <Link className='logout_btn' onClick={handleLogout}>
+                            {currentuser ? <Link to='/' className='logout_btn' onClick={handleLogout}>
                                 Log out</Link> : null}
                         </li>
                         <li>

@@ -19,6 +19,8 @@ const Login = () => {
         const input = e.target.name
         const value = e.target.value
         setData({...data, [input]: value})
+        // const { value, name } = event.target;
+        // setData({ [name]: value }); Can be done like this too
     }
     async function handleformSubmit(e) {
         e.preventDefault()
@@ -30,6 +32,7 @@ const Login = () => {
         } catch{
             alert('Failed to sign in')
         }
+        setData({email: '', password: ''})
     }
 
     return ( 
