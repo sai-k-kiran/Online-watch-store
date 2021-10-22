@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'atropos/atropos.css'
 import App from './App';
-import stores from './components/ridux/store'
+import store from './components/redux/store'
 import {Provider} from 'react-redux'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={stores}>
+    <Provider store={store}>
     <App />
     </Provider>
   </React.StrictMode>,
