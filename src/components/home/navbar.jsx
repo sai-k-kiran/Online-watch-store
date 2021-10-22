@@ -5,9 +5,8 @@ import { Link, useHistory } from 'react-router-dom';
 import {FiSearch} from 'react-icons/fi'
 import {GoThreeBars} from 'react-icons/go'
 import CartIcon from '../cart/cartIcon';
-import CartDropdown from '../cart/cartDropdown';
 import { useAuth } from '../auth/authContext';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { cartItems, cartLength } from '../redux/cartRedux/cartActions';
 import { auth, db } from '../firebase/firebaseUtils'
 
@@ -83,7 +82,6 @@ const Navbar = ({hidden}) => {
                         </li>
                     </ul>
                 </div>
-                {hidden ? null : <CartDropdown />}
                 <div className='bars'>
                     <GoThreeBars />
                 </div>
@@ -91,8 +89,5 @@ const Navbar = ({hidden}) => {
         </div>
      )
 }
-const mapStateToProps = ({cart: {hidden}}) => ({
-    hidden
-})
- 
-export default connect(mapStateToProps)(Navbar);
+
+export default Navbar;

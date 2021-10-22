@@ -1,20 +1,20 @@
 import React from 'react'
 import {IoBagHandleOutline} from 'react-icons/io5'
 import './cart.css'
-import { connect, useSelector } from 'react-redux'
-import {toggleCartHidden} from '../redux/cartRedux/cartActions'
+import { useSelector } from 'react-redux'
+import {Link} from 'react-router-dom'
+
 
 function CartIcon({toggleCartHidden}) {
     const cart_length = useSelector(state => state.cart_length.length)
     return ( 
         <> 
-            <IoBagHandleOutline className='cart-icon' onClick={toggleCartHidden}/>
-            <span className='cart-number'>{cart_length}</span>
+            <Link className='cart-btn' to='/cart'>
+                <IoBagHandleOutline className='cart-icon' onClick={toggleCartHidden}/>
+                <span className='cart-number'>{cart_length}</span>
+            </Link>
         </>
     )
 }
-const mapsDispatchToProps = dispatch => ({
-    toggleCartHidden: ()=> dispatch(toggleCartHidden())
-})
 
-export default connect(null, mapsDispatchToProps)(CartIcon)
+export default CartIcon
