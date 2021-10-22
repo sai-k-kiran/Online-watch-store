@@ -6,7 +6,7 @@ import {toggleCartHidden} from '../redux/cartRedux/cartActions'
 
 function CartIcon({toggleCartHidden}) {
     const cart_length = useSelector(state => state.cart_length.length)
-    return (
+    return ( 
         <> 
             <IoBagHandleOutline className='cart-icon' onClick={toggleCartHidden}/>
             <span className='cart-number'>{cart_length}</span>

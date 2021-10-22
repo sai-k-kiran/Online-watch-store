@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Home from './components/home/home'
 import Products from './components/directory/products'
 import './App.css';
@@ -15,19 +15,19 @@ import AuthProvider from './components/auth/authContext';
 function App() {
   return (
     <Provider store={store}>
-    <AuthProvider>
-    <BrowserRouter>
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/products' component={Products} />
-        <Route path='/product/:id' component={Product} />
-        <Route path='/contact' component={Contact} />
-        <Route path='/register' component={Register} />
-        <Route path='/signin' component={Login} />
-        <Route path='/cart' component={Cart} />
-      </Switch>
-    </BrowserRouter>
-    </AuthProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/products' component={Products} />
+            <Route path='/product/:id' component={Product} />
+            <Route path='/contact' component={Contact} />
+            <Route path='/register' component={Register} />
+            <Route path='/signin' component={Login} />
+            <Route path='/cart' component={Cart} />
+          </Switch>
+        </BrowserRouter>
+      </AuthProvider>
   </Provider>
   );
 }

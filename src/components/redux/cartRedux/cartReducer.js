@@ -13,7 +13,7 @@ const cartReducer = (state=INITIAL_STATE, action) => {
         case CartActionsTypes.TOGGLE_CART_HIDDEN:
             return {
                 ...state,
-                hidden: !state.hidden
+                hidden: !state.hidden 
             }
         default:
             return state
@@ -22,9 +22,9 @@ const cartReducer = (state=INITIAL_STATE, action) => {
 export const cartLengthReducer = (state= cartState, {type, payload}) => {
     switch(type){
         case CartActionsTypes.CART_LENGTH :
-            return {length: payload}
+            return {...state, length: payload}
         default: 
-        return state
+            return state
     }
 }
 export const cartItems = (state= cartState, {type, payload}) => {

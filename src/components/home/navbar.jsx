@@ -23,7 +23,7 @@ const Navbar = ({hidden}) => {
       auth.onAuthStateChanged(user=>{
           const items = db.collection(user.email).onSnapshot((snapshot)=>{
               snapshot.forEach(doc =>{
-                  getList.push({...doc.data()})
+                  getList.push({...doc.data(), doc_id: doc.id})
               })
               setList(getList);
           })

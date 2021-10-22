@@ -4,7 +4,7 @@ import CartItem from './cartItem'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
- function CartDropdown() { 
+ function CartDropdown() {  
     
     const fadeTop ={
         hidden: {opacity: 0, y : -100},
