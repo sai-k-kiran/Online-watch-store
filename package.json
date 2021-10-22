@@ -8,6 +8,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "atropos": "^0.9.6",
+    "axios": "^0.23.0",
     "firebase": "^9.1.2",
     "framer-motion": "^4.1.17",
     "node-sass": "^6.0.1",

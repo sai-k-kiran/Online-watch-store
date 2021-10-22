@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './home.css'
 import Logo from '../images/python.jpg'
 import { Link, useHistory } from 'react-router-dom';
@@ -7,12 +7,31 @@ import {GoThreeBars} from 'react-icons/go'
 import CartIcon from '../cart/cartIcon';
 import CartDropdown from '../cart/cartDropdown';
 import { useAuth } from '../auth/authContext';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
+import { cartItems, cartLength } from '../redux/cartRedux/cartActions';
+import { auth, db } from '../firebase/firebaseUtils'
 
 const Navbar = ({hidden}) => {
     const [query, setQuery] = useState('')
     const {currentuser, logout} = useAuth()
     const history = useHistory()
+    const [list, setList] = useState([])
+    const dispatch = useDispatch()
+  
+    useEffect(()=> {
+      const getList = []
+      auth.onAuthStateChanged(user=>{
+          const items = db.collection(user.email).onSnapshot((snapshot)=>{
+              snapshot.forEach(doc =>{
+                  getList.push({...doc.data()})
+              })
+              setList(getList);
+          })
+          return () => items()
+      })     
+    }, []) 
+    dispatch(cartLength(list.length))
+    dispatch(cartItems(list))
 
     async function handleLogout() {
         try{
@@ -37,7 +56,7 @@ const Navbar = ({hidden}) => {
                             <Link to='/products'>Products</Link>
                         </li>
                         <li>
-                            <Link to='/profile'>Profile</Link>
+                            <Link to='/contact'>Contact</Link>
                         </li>
                     </ul>
                 </div>

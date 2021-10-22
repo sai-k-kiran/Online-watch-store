@@ -50,7 +50,7 @@ textarea {
   color: white;
   font-size: 18px;
   box-shadow: 10px 0 40px 0 rgba(0, 0, 0, 0.15);
-  background-color: rgb(255, 94, 0);
+  background: linear-gradient(to left, rgb(3, 130, 248), rgb(1, 63, 121));
   margin: 10px 0;
 }
 .contact-info {
@@ -68,6 +68,6 @@ textarea {
   width: 33.33%;
 }
 .md-icon {
-  color: rgb(255, 94, 0);
+  color: rgb(3, 130, 248);
   font-size: 50px;
 }

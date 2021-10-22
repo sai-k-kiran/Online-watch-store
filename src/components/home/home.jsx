@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Navbar from './navbar';
 import Items from '../menu/items'
 import './home.css';
@@ -9,7 +9,7 @@ import Footer from './footer';
 
 
 const HomePage = () => {
-  const fadeTop ={
+    const fadeTop ={
     hidden: {opacity: 0, y : -100},
     visible: {opacity: 1, y: 0},
   }
