@@ -1,0 +1,60 @@
+.shipping-block {
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5% auto;
+}
+.shipping {
+  width: 50%;
+  display: block;
+  flex-direction: column;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+.shipping-form {
+  width: 100%;
+  margin: 0 auto;
+}
+.ship-input {
+  display: block;
+  width: 80%;
+  padding: 10px;
+  margin: 10px auto;
+}
+.order-sum {
+  text-align: center;
+  width: 50%;
+}
+.order-box {
+  border: 3px solid rgba(3, 130, 248, 0.6);
+  border-radius: 10px;
+  padding: 20px 0;
+  box-shadow: rgba(2, 101, 194, 0.2) 0px 7px 20px 0px;
+}
+.master {
+  background-image: linear-gradient(
+    to right,
+    rgb(235, 0, 27),
+    rgb(247, 158, 27)
+  );
+  border: none;
+}
+.visa {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(26, 31, 113),
+    rgb(255, 255, 255),
+    rgb(247, 182, 0)
+  );
+  border: none;
+  color: black;
+}
+.paypal {
+  background-image: linear-gradient(
+    to right,
+    rgb(0, 156, 222),
+    rgb(0, 16, 247)
+  );
+  border: none;
+}

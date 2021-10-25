@@ -1,13 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './cart.css'
 import Navbar from '../home/navbar'
 import Footer from '../home/footer'
+import Payment from './payment'
 import { useSelector } from 'react-redux'
 import { auth, db } from '../firebase/firebaseUtils'
+import { deleteItems } from '../redux/cartRedux/cartActions'
 
-const Cart = () => {
+const Cart = () => { 
     const items = useSelector(state => state.cartItems.items)
-    const [list, setList] = useState(items)
+    const [list, setList] = useState(items)   
 
     const removeItem = (item) => {
         const newItems = list.filter(items => list.id !== items.id)
@@ -36,40 +38,7 @@ const Cart = () => {
                     </div>
                 ))}
                 </div>
-                <div className='payment-block'>
-                    <h2 style={{marginBottom: '10px'}}>No. of Items: {list.length}</h2>
-                    <h2 style={{marginBottom: '20px'}}>Order Summary :</h2>
-                    <table>
-                        {list.map((item, index) => (
-                            <tr key={index} style={{padding: '5px'}}>
-                                <td>
-                                    <h3>{item.name} </h3>
-                                </td>
-                                <td>
-                                    <h3> $ {item.price}</h3>
-                                </td>
-                            </tr>
-                        ))}
-                        <tr>
-                            <td>
-                                <hr className='underline'></hr>
-                            </td>
-                            <td>
-                                <hr className='underline'></hr>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h2>Order Total : </h2>
-                            </td>
-                            <td>
-                                <h2 style={{width: '100%'}}>
-                                $ {list.reduce((a,v) =>  a = a + v.price, 0)}</h2>
-                            </td>
-                        </tr> 
-                    </table>
-                    <button className='btn'>Proceed to pay</button>
-                </div>
+                <Payment list={list}/>
            </div>
            <Footer /> 
         </div>

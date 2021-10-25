@@ -36,9 +36,7 @@ function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className='powered'>
-                    <p>Paperbag@2021, Powered by <span>Clint Studios</span></p>
-                </div>
+                
             </footer>
         </>
     )

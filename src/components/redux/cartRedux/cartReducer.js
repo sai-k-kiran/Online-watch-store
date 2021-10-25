@@ -30,10 +30,13 @@ export const cartLengthReducer = (state= cartState, {type, payload}) => {
 export const cartItems = (state= cartState, {type, payload}) => {
     switch(type){
         case CartActionsTypes.CART_ITEMS :
-            return {...state, items: payload}
+            return {...state.items, items: payload} // added ".items" after state
+        case CartActionsTypes.DELETE_ITEMS :
+            return {...state.items.filter(item => item !== payload)} 
         default: 
-        return state
+            return state
     }
 }
+
 
 export default cartReducer

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './home.css'
-import Logo from '../images/python.jpg'
+import Logo from '../images/logo.png'
 import { Link, useHistory } from 'react-router-dom';
 import {FiSearch} from 'react-icons/fi'
 import {GoThreeBars} from 'react-icons/go'
@@ -10,27 +10,31 @@ import { useDispatch } from 'react-redux';
 import { cartItems, cartLength } from '../redux/cartRedux/cartActions';
 import { auth, db } from '../firebase/firebaseUtils'
 
-const Navbar = ({hidden}) => {
+const Navbar = () => {
     const [query, setQuery] = useState('')
+    const [loading, setLoading] = useState(false)
     const {currentuser, logout} = useAuth()
     const history = useHistory()
     const [list, setList] = useState([])
     const dispatch = useDispatch()
   
     useEffect(()=> {
+      setLoading(true)
       const getList = []
       auth.onAuthStateChanged(user=>{
-          const items = db.collection(user.email).onSnapshot((snapshot)=>{
+          db.collection(user.email).onSnapshot((snapshot)=>{
               snapshot.forEach(doc =>{
                   getList.push({...doc.data(), doc_id: doc.id})
               })
               setList(getList);
           })
-          return () => items()
-      })     
+          setLoading(false)
+      })   
     }, []) 
-    dispatch(cartLength(list.length))
-    dispatch(cartItems(list))
+    useEffect(()=> {
+        dispatch(cartItems(list))
+        dispatch(cartLength(list.length))
+    })
 
     async function handleLogout() {
         try{

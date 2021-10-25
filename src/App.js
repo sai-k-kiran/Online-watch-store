@@ -9,6 +9,7 @@ import Register from './components/auth/register';
 import Login from './components/auth/login';
 import Product from './components/directory/product';
 import Cart from './components/cart/cart'
+import ShippingForm from './components/features/shipping';
 import store from './components/redux/store';
 import AuthProvider from './components/auth/authContext';
 
@@ -25,6 +26,7 @@ function App() {
             <Route path='/register' component={Register} />
             <Route path='/signin' component={Login} />
             <Route path='/cart' component={Cart} />
+            <Route path='/shipping' component={ShippingForm} />
           </Switch>
         </BrowserRouter>
       </AuthProvider>

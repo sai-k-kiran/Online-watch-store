@@ -12,3 +12,7 @@ export  const cartItems = (items) => ({
   type: CartActionsTypes.CART_ITEMS,
   payload: items
 })
+export  const deleteItems = (items) => ({
+  type: CartActionsTypes.DELETE_ITEMS,
+  payload: items
+})

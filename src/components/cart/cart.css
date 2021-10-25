@@ -103,7 +103,7 @@
   color: black !important;
 }
 .remove-btn {
-  border: 1px solid rgba(255, 0, 0, 0.548);
+  border: 1px solid rgba(248, 85, 85, 0.548);
   padding: 5px 10px;
   margin-top: 10px;
   border-radius: 30px;
@@ -125,12 +125,34 @@
 .underline {
   margin: 10px 0;
   width: 100%;
-  border: 1px solid red;
+  border: 1px solid rgb(0, 81, 255);
   height: 2px;
-  background-color: red;
+  background-color: rgb(0, 81, 255);
+}
+.table-block {
+  width: 85%;
+  padding: 10px 0;
+  background-color: rgba(2, 132, 184, 0.26);
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
 table {
-  width: 80%;
+  margin-left: 20px;
+  width: 90%;
   border-collapse: separate;
   border-spacing: 0 10px;
+}
+.pay-btn {
+  background-color: black;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 30px;
+  text-decoration: none;
+  border: 1px solid black;
+  margin-top: 20px;
+  transition: ease 0.3s;
+}
+.pay-btn:hover {
+  background-color: white;
+  color: black;
 }
