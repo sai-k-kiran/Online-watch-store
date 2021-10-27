@@ -1,54 +1,41 @@
 import Atropos from 'atropos/react/atropos-react.esm';
-import React, {useEffect} from 'react';
+import React, {useState} from 'react';
 import {categories} from '../data/jsondata'
 import './directory.css'
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { ItemCategories } from '../redux/cartRedux/cartActions';
 
 const Cards = ({title}) => {
-    const {ref, inView} = useInView({
-        threshold: 0.2
-    })
-    const animation = useAnimation()
-
-    useEffect(() => {
-        if(inView){
-            animation.start({
-                opacity: 1,
-                y: 0,
-                transition: {
-                    duration: 1
-                }
-            })
-        } else{
-            animation.start({
-                opacity: 0,
-            })
-        }
-    }, [inView])
+    const [category, setCategory] = useState()
+    const dispatch = useDispatch()
+    const handleCategory = (category) =>{
+        setCategory(category.title)
+    }
+    dispatch(ItemCategories(category))
+    
     return ( 
         <>
             <div className='category-title'>
                 <h1>{title}</h1>
-            </div>
-            <div ref={ref} className='cards-menu'>
-                {categories.map(category => 
-                    <motion.div className='cards' 
-                    animate={animation} key={category.id}>
-                        <Atropos>
-                            <div className='overlayImg'>
-                                <img className ='card-img'
-                                src={category.imageUrl} alt={category.title}/>
-                            </div>
-                        </Atropos >
+            </div> 
+            <div className='cards-menu'>
+                {categories.map(category => (
+                    <Link to={`/products/${category.title}`} key={category.id}>
+                    <div className='cards'>
+                        <div className='overlayImg' onClick={()=>handleCategory(category)}>
+                            <img className ='card-img'
+                            src={category.imageUrl} alt={category.title}/>
+                        </div>
                         <div className='card-title'>
                             <h2>{category.title}</h2>
                         </div>
-                    </motion.div>
-                )}
+                    </div>
+                    </Link>
+                ))}
             </div>
         </>
      )
 }
  
-export default Cards;
+export default Cards

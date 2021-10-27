@@ -4,15 +4,17 @@ import {items} from '../data/jsondata'
 import Navbar from '../home/navbar'
 import Footer from '../home/footer'
 import Filter from './filter';
-import { Link } from 'react-router-dom';  
+import { Link, useParams } from 'react-router-dom';  
 
-const Products = ({addItem}) => {
-    const [menu, setMenu] = useState(items);
+const Products = () => {
+    const {category} = useParams()
+    const filteredItems = items.filter(item => item.category === category)
+    const [menu, setMenu] = useState(category === 'all' ? items : filteredItems);
     const [filter, setFilter] = useState({price:'', category:'', color: ''})
 
     const sortProducts = (e) => {
         const filter = e.target.value
-        const newProducts = items.slice().sort((a,b) => (
+        const newProducts = filteredItems.slice().sort((a,b) => (
             filter === "Low to high" ? 
             a.price > b.price ? 
             1 : -1 :
@@ -30,7 +32,7 @@ const Products = ({addItem}) => {
             setMenu(items)
             setFilter({category: e.target.value})
         } else {
-        const newProducts = items.filter(product => product.strap === e.target.value)
+        const newProducts = filteredItems.filter(product => product.strap === e.target.value)
         setMenu(newProducts)
         setFilter({category: e.target.value})
         }
@@ -41,7 +43,7 @@ const Products = ({addItem}) => {
             setMenu(items)
             setFilter({color: e.target.value})
         } else {
-        const newProducts = items.filter(product => product.color === e.target.value)
+        const newProducts = filteredItems.filter(product => product.color === e.target.value)
         setMenu(newProducts)
         setFilter({color: e.target.value})
         }
@@ -60,8 +62,8 @@ const Products = ({addItem}) => {
             <div className='products-block'>
                 <div className='products-grid'>
                     {menu.map(watch => (
-                        <Link to={`/product/${watch.id}`} >
-                        <div className='products' key={watch.id}>
+                        <Link to={`/product/${watch.id}`} key={watch.id}>
+                        <div className='products'>
                             <img className ='product-img'
                             src={watch.imageUrl} alt={watch.title}/>
                             <div className='product-title'>

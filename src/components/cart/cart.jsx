@@ -5,15 +5,14 @@ import Footer from '../home/footer'
 import Payment from './payment'
 import { useSelector } from 'react-redux'
 import { auth, db } from '../firebase/firebaseUtils'
-import { deleteItems } from '../redux/cartRedux/cartActions'
 
 const Cart = () => { 
     const items = useSelector(state => state.cartItems.items)
-    const [list, setList] = useState(items)   
+    const [list, setList] = useState(items)
 
     const removeItem = (item) => {
         const newItems = list.filter(items => list.id !== items.id)
-        setList(...list, newItems)
+        setList(...newItems)
         auth.onAuthStateChanged(user=>{
             db.collection(user.email).doc(item.doc_id).delete()
         })
@@ -44,5 +43,6 @@ const Cart = () => {
         </div>
     )
 }
+
 
 export default Cart

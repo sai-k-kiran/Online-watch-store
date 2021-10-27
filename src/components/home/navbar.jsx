@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './home.css'
 import Logo from '../images/logo.png'
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 import {FiSearch} from 'react-icons/fi'
 import {GoThreeBars} from 'react-icons/go'
 import CartIcon from '../cart/cartIcon';

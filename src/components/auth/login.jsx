@@ -3,36 +3,27 @@ import './auth.css'
 import Input from './input'
 import {FcGoogle} from 'react-icons/fc'
 import {useAuth} from './authContext'
-import {Link, useHistory} from 'react-router-dom'
-import { signInWithGoogle } from '../firebase/firebaseUtils';
+import {useHistory} from 'react-router-dom'
+import {signInWithGoogle, auth} from '../firebase/firebaseUtils';
 
 const Login = () => {
     const [data, setData] = useState({email: '', password: ''})
-    const [submitted, setSubmitted] = useState(false)
-    const [error, setError] = useState('')
-    const emailRef = useRef()
-    const passwordRef = useRef()
-    const {login} = useAuth()
-    const history = useHistory() 
 
     const handleformChange = (e) => {
         const input = e.target.name
         const value = e.target.value
         setData({...data, [input]: value})
-        // const { value, name } = event.target;
-        // setData({ [name]: value }); Can be done like this too
     }
     async function handleformSubmit(e) {
         e.preventDefault()
-		setSubmitted(true);
+        const {email, password} = data
         try{
-            setError('')
-            await login( emailRef.current.value, passwordRef.current.value)
-            history.push('/')
+            await auth.signInWithEmailAndPassword(email, password)
+            setData({email: '', password: ''})
         } catch{
             alert('Failed to sign in')
         }
-        setData({email: '', password: ''})
+
     }
 
     return ( 
@@ -44,9 +35,9 @@ const Login = () => {
                 <div className='modal-body'>
                     <form className='modal-form' onSubmit={handleformSubmit}>
                         <Input name='email' type='email' handlechange={handleformChange}
-                        value={data.email} placeholder='Email' reference={emailRef}/>
+                        value={data.email} placeholder='Email'/>
                         <Input name='password' type='password' handlechange={handleformChange}
-                        value={data.password} placeholder='Password' reference={passwordRef}/>
+                        value={data.password} placeholder='Password'/>
                         <button className='submit'>Log In</button>
                         <button className='googleAuth' onClick={signInWithGoogle}>
                             Or Sign In with Google <FcGoogle className='g-icon'/></button>

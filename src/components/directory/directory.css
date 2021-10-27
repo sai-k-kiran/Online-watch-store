@@ -3,6 +3,9 @@
   margin: 0 10% 0 10%;
   justify-content: space-around;
 }
+.cards-menu a {
+  text-decoration: none;
+}
 .cards {
   height: 275px;
   margin: 10px 20px;
@@ -21,6 +24,10 @@
   height: 275px;
   background-color: rgba(58, 58, 58, 0.384);
   border-radius: 10px;
+  transition: all 0.4s;
+}
+.overlayImg:hover {
+  transform: scale(1.08);
 }
 .category-title {
   width: 80%;

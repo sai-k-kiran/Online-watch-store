@@ -17,15 +17,15 @@ const HomePage = () => {
   <div>
     <Navbar />
    <div className='banner'>
-    <motion.div className='banner-image'
-    initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 1}}>
-      <img src={gear} alt='model' className='banner-img' />
-    </motion.div>
-     <motion.div className='banner-text' variants={fadeTop} initial='hidden' animate='visible'
-     transition={{duration: 1}}>
-      <h1>lorem ipsum dolor sit</h1>
-      <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,<br></br> consectetur, adipisci velit...</p>
-     </motion.div>
+      <motion.div className='banner-image'
+        initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 1}}>
+        <img src={gear} alt='model' className='banner-img' />
+      </motion.div>
+      <motion.div className='banner-text' variants={fadeTop} initial='hidden' animate='visible'
+      transition={{duration: 1}}>
+        <h1>lorem ipsum dolor sit</h1>
+        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,<br></br> consectetur, adipisci velit...</p>
+      </motion.div>
    </div>
    <hr className='section-line'></hr>
    <Items title={'Featured items'} />

@@ -4,7 +4,6 @@ import './cart.css'
 import { useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
 
-
 function CartIcon({toggleCartHidden}) {
     const cart_length = useSelector(state => state.cart_length.length)
     return ( 

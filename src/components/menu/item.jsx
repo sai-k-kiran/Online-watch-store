@@ -8,7 +8,7 @@ const Item = ({ title,imageUrl}) => (
       <div className='content'>
         <h1 className='title'>{title.toUpperCase()}</h1>
       </div>
-  </div>
+    </div>
 )
 
 export default Item;

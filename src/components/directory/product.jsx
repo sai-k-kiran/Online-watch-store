@@ -7,8 +7,8 @@ import Footer from '../home/footer'
 import {auth, db} from '../firebase/firebaseUtils'
 
 function Product() {
-    const { id } = useParams()
-    const product = items[id - 1]
+    const {id} = useParams()
+    const product = items.filter(item => item.id == id)[0]
 
     const addToCart = (item) => {
         auth.onAuthStateChanged(user => {

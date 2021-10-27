@@ -3,7 +3,9 @@
   margin: 0 10%;
   justify-content: space-around;
 }
-
+.items-menu a {
+  text-decoration: none;
+}
 .item {
   width: 210px;
   height: 150px;
@@ -30,4 +32,5 @@
 }
 .title {
   font-size: 18px;
+  color: black;
 }

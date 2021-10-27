@@ -1,21 +1,11 @@
 import React, { useState, useRef } from 'react';
 import './auth.css'
 import Input from './input'
-import {useAuth} from './authContext'
-import {useHistory} from 'react-router-dom'
+
+import { auth, handleUserProfile } from '../firebase/firebaseUtils';
 
 const Register = () => {
-    const [data, setData] = useState({name: '', email: '', password: '', confirm: ''})
-    const [submitted, setSubmitted] = useState(false)
-    const [error, setError] = useState('')
-    const [loading, setLoading] = useState(false)   
-    const emailRef = useRef()
-    const nameRef = useRef()
-    const passwordRef = useRef()
-    const confirmRef = useRef()
-    const {signup} = useAuth()
-    const history = useHistory() 
-
+    const [data, setData] = useState({name: '', email: '', password: '', confirm: '', error: []})
     const handleformChange = (e) => {
         const input = e.target.name
         const value = e.target.value
@@ -23,17 +13,18 @@ const Register = () => {
     }
     async function handleformSubmit(e) {
         e.preventDefault()
-		setSubmitted(true);
+        const {name, email, password, confirm} = data
+        if(confirm !== password){
+            const err = ['Passwords don\'t match']
+            setData({error: err})
+        }
  
         try{
-            setError('')
-            setLoading(true)
-            await signup( emailRef.current.value, passwordRef.current.value)
-            history.push('/')
+            const {user} = await auth.createUserWithEmailAndPassword(email, password)
+            await handleUserProfile(user, {name})
         } catch{
             alert('Failed to create an account')
         }
-        setLoading(false)
     }
 
     return ( 
@@ -46,15 +37,22 @@ const Register = () => {
                 <div className='modal-body'>
                     <form className='modal-form' onSubmit={handleformSubmit}>
                         <Input name='name' type='text' handlechange={handleformChange}
-                        value={data.name} placeholder='Name' reference={nameRef}/>
+                        value={data.name} placeholder='Name'/>
                         <Input name='email' type='email' handlechange={handleformChange}
-                        value={data.email} placeholder='Email' reference={emailRef}/>
+                        value={data.email} placeholder='Email'/>
                         <Input name='password' type='password' handlechange={handleformChange}
-                        value={data.password} placeholder='Password' reference={passwordRef}/>
+                        value={data.password} placeholder='Password' />
                         <Input name='confirm' type='password' handlechange={handleformChange}
-                        value={data.confirm} placeholder='Confirm Password' reference={confirmRef}/>
+                        value={data.confirm} placeholder='Confirm Password'/>
                         <button className='register'>Register</button>
                     </form>
+                    {data.error.map((err, index) => {
+                        return(
+                            <li key={index}>
+                                <p>{err}</p>
+                            </li>
+                        )
+                    })}
                 </div>
             </div>
         </div>

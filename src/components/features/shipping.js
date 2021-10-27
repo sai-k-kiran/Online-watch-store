@@ -14,6 +14,9 @@ export default function ShippingForm() {
         const { value, name } = e.target;
         setData({ [name]: value }); 
     }
+    const handlePay = (e) => {
+        e.preventDefault()
+    }
     return (
         <div>
            <Navbar />
@@ -29,7 +32,7 @@ export default function ShippingForm() {
                     <input className='ship-input' name='name' value={data.address1} onChange={handleformchange} />
                     <label>Address Line 2(optional)</label>
                     <input className='ship-input' name='name' value={data.address2} onChange={handleformchange} />
-                    <button className='btn'>Submit</button>
+                    <button className='btn' onClick={handlePay}>Submit</button>
                   </form>
                </div>
                <div className='order-sum'>
