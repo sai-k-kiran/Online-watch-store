@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './products.css'
 import {items} from '../data/jsondata'
 import { useParams } from 'react-router'
@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css'
 function Product() {
     const dispatch = useDispatch()
     const {id} = useParams()
-    const product = items.filter(item => item.id == id)[0]
+    const product = items.filter(item => item.id === id)[0]
 
     const handleAddToCart = (product) => {
         if(!product) return ;

@@ -1,6 +1,5 @@
 import React from 'react';
 import './products.css'
-import { categories } from '../data/jsondata';
 
 const Filter = ({count, color,price, category, filterProducts, sortProducts, productsMaterial}) => {
     return ( 

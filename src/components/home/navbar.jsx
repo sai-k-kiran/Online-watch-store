@@ -1,21 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './home.css'
 import Logo from '../images/logo.png'
 import { Link, useHistory} from 'react-router-dom';
-import {FiSearch} from 'react-icons/fi'
 import {GoThreeBars} from 'react-icons/go'
 import CartIcon from '../cart/cartIcon';
-import { useDispatch, useSelector} from 'react-redux';
-import { auth, db } from '../firebase/firebaseUtils'
+import { useSelector} from 'react-redux';
+import { auth } from '../firebase/firebaseUtils'
 
 const Navbar = (props) => {
     const mapState = (state) => ({
         currentUser: state.user.currentUser
     })
-    const [query, setQuery] = useState('')
     const history = useHistory()
-    const [list, setList] = useState([])
-    const dispatch = useDispatch()
     const {currentUser} = useSelector(mapState)
 
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import Home from './components/home/home'
 import Products from './components/directory/products'
 import './App.css';
@@ -17,7 +17,6 @@ import {setCurrentUser} from './components/redux/userRedux/userActions'
 function App(props) {
   const {setCurrentUser, currentUser} = props
   useEffect(() => {
-
     const authListener = auth.onAuthStateChanged(async userAuth => { 
       if(userAuth){
         const userRef = await handleUserProfile(userAuth);
@@ -31,7 +30,7 @@ function App(props) {
       authListener()
     }
      
-  }, [])
+  }, [setCurrentUser])
 
   return (
     <Provider store={store}>

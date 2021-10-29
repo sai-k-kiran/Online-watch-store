@@ -1,4 +1,3 @@
-import Atropos from 'atropos/react/atropos-react.esm';
 import React, {useState} from 'react';
 import {categories} from '../data/jsondata'
 import './directory.css'

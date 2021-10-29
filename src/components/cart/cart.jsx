@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import './cart.css'
 import Navbar from '../home/navbar'
 import Footer from '../home/footer'
