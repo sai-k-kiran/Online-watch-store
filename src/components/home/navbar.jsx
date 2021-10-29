@@ -1,44 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import './home.css'
 import Logo from '../images/logo.png'
-import { Link, useHistory, Redirect } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 import {FiSearch} from 'react-icons/fi'
 import {GoThreeBars} from 'react-icons/go'
 import CartIcon from '../cart/cartIcon';
-import { useAuth } from '../auth/authContext';
-import { useDispatch } from 'react-redux';
-import { cartItems, cartLength } from '../redux/cartRedux/cartActions';
+import { useDispatch, useSelector} from 'react-redux';
 import { auth, db } from '../firebase/firebaseUtils'
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const mapState = (state) => ({
+        currentUser: state.user.currentUser
+    })
     const [query, setQuery] = useState('')
-    const [loading, setLoading] = useState(false)
-    const {currentuser, logout} = useAuth()
     const history = useHistory()
     const [list, setList] = useState([])
     const dispatch = useDispatch()
-  
-    useEffect(()=> {
-      setLoading(true)
-      const getList = []
-      auth.onAuthStateChanged(user=>{
-          db.collection(user.email).onSnapshot((snapshot)=>{
-              snapshot.forEach(doc =>{
-                  getList.push({...doc.data(), doc_id: doc.id})
-              })
-              setList(getList);
-          })
-          setLoading(false)
-      })   
-    }, []) 
-    useEffect(()=> {
-        dispatch(cartItems(list))
-        dispatch(cartLength(list.length))
-    })
+    const {currentUser} = useSelector(mapState)
+
 
     async function handleLogout() {
         try{
-            await logout()
+            await auth.signOut()
             history.push('/')
         } catch {
             alert("Failed to log out")
@@ -56,33 +39,27 @@ const Navbar = () => {
                             <Link to='/'>Home</Link>
                         </li>
                         <li>
-                            <Link to='/products'>Products</Link>
+                            <Link to='/products/all'>Products</Link>
                         </li>
                         <li>
                             <Link to='/contact'>Contact</Link>
                         </li>
                     </ul>
                 </div>
-                <div className='search'>
-                    <input className='search-bar'
-                    onChange={e=>setQuery(e.target.value)} 
-                    value={query} placeholder='Search items'/>
-                    <Link to='/search'><FiSearch /></Link>
-                </div>
                 <div className='nav-menu'>
                     <ul>
                         <li>
-                            {currentuser ? null : <Link to='/signin'>Sign In</Link>}
+                            {currentUser ? null : <Link to='/signin'>Sign In</Link>}
                         </li>
                         <li>
-                            {currentuser ? null : <Link to='/register'>Register</Link>}
+                            {currentUser ? null : <Link to='/register'>Register</Link>}
                         </li>
                         <li>
-                            {currentuser ? <Link to='/' className='logout_btn' onClick={handleLogout}>
+                            {currentUser ? <Link to='/' className='logout_btn' onClick={handleLogout}>
                                 Log out</Link> : null}
                         </li>
                         <li>
-                            {currentuser ? <CartIcon /> : null}
+                            {currentUser ? <CartIcon /> : null}
                         </li>
                     </ul>
                 </div>

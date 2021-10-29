@@ -2,42 +2,40 @@ import React, {useState, useEffect} from 'react'
 import './cart.css'
 import Navbar from '../home/navbar'
 import Footer from '../home/footer'
-import Payment from './payment'
 import { useSelector } from 'react-redux'
-import { auth, db } from '../firebase/firebaseUtils'
+import { selectCartItems, selectCartTotal } from '../redux/cartRedux/cartSelectors'
+import { createStructuredSelector} from 'reselect'
+import { selectCartItemsCount } from '../redux/cartRedux/cartSelectors';
+import CartItem from './cartItem'
+import {Link} from 'react-router-dom'
 
 const Cart = () => { 
-    const items = useSelector(state => state.cartItems.items)
-    const [list, setList] = useState(items)
-
-    const removeItem = (item) => {
-        const newItems = list.filter(items => list.id !== items.id)
-        setList(...newItems)
-        auth.onAuthStateChanged(user=>{
-            db.collection(user.email).doc(item.doc_id).delete()
-        })
-    }
+    const mapState = createStructuredSelector({
+        cartItems: selectCartItems,
+        totalAmount: selectCartTotal
+    })
+    const {cartItems, totalAmount} = useSelector(mapState)
+    const cart_length = useSelector(state => selectCartItemsCount(state))
 
     return (
         <div>
            <Navbar />
            <div className='cart-block'>
+               {cart_length > 0 ? 
                 <div className='items-block'>
-                {list.map((item, index) => (
-                    <div className='cart-items' key={index}>
-                        <div className='item-pic'>
-                            <img src={item.image} alt={item.name} />
+                    <h2>Total: {cart_length} Items</h2>
+                    {cartItems.map((item, index) => (
+                        <div className='cart-items' key={index}>
+                            <CartItem item={item} />
                         </div>
-                        <div className='item-detail'>
-                            <h3 className='name'>{item.name}</h3>
-                            <p className='price'>${item.price}</p>
-                            <button className='remove-btn'
-                            onClick={()=>removeItem(item)}>Remove</button>
-                        </div>
+                    ))}
+                    <h2>Total amount: £ {totalAmount}</h2>
+                    <div className='links-block'>
+                        <Link to='/shipping' className='pay-btn'>Proceed to pay</Link>
+                        <Link to='/' className='pay-btn'>Continue shopping</Link>
                     </div>
-                ))}
-                </div>
-                <Payment list={list}/>
+                </div> :
+               <h1>No items in your cart</h1>}
            </div>
            <Footer /> 
         </div>

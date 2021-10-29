@@ -3,7 +3,7 @@ const featured = {
       {
         title: 'A LANGE & SÖHNE',
         imageUrl: 'https://i.ibb.co/r3sgqhb/saxonjpg.jpg',
-        id: 1,
+        id: 213,
         category: 'Casual',
         maker: 'Saxon watchmaking house',
         country: 'Germany',
@@ -12,7 +12,7 @@ const featured = {
       {
         title: 'Georg jensen',
         imageUrl: 'https://i.ibb.co/FWkbgHV/04112020-Watches-39.jpg',
-        id: 2,
+        id: 214,
         category: 'Sports',
         maker: 'Georg jensen',
         country: 'Denmark',
@@ -21,7 +21,7 @@ const featured = {
       {
         title: 'Apple watch',
         imageUrl: 'https://i.ibb.co/xjvqvH6/apple.jpg',
-        id: 3,
+        id: 215,
         category: 'Sports',
         maker: 'Apple Inc',
         country: 'USA',
@@ -30,7 +30,7 @@ const featured = {
       {
         title: 'Manero Flyback',
         imageUrl: 'https://i.ibb.co/897v1w6/04112020-Watches-01.jpg',
-        id: 4,
+        id: 216,
         category: 'Casual',
         maker: 'CARL F BUCHERER',
         country: 'Business',
@@ -39,7 +39,7 @@ const featured = {
       {
         title: 'The Leonardo',
         imageUrl: 'https://i.ibb.co/z7Y1RvY/Dolce-Gabbana-Manifattura-Italiana-Leonardo-3.jpg',
-        id: 5,
+        id: 217,
         category: 'Casual',
         maker: 'DOLCE&GABBANA',
         country: 'Italy',
@@ -258,6 +258,61 @@ const items = [
         strap: 'Leather',
         color: 'Black',
         price: 399
+    },
+    {
+      title: 'A LANGE & SÖHNE',
+      imageUrl: 'https://i.ibb.co/r3sgqhb/saxonjpg.jpg',
+      id: '213',
+      strap: 'Leather',
+      color: 'Brown',
+      category: 'Casual',
+      maker: 'Saxon watchmaking house',
+      country: 'Germany',
+      price: 8400
+    },
+    {
+      title: 'Georg jensen',
+      imageUrl: 'https://i.ibb.co/FWkbgHV/04112020-Watches-39.jpg',
+      id: '214',
+      category: 'Casual',
+      color: 'Brown',
+      strap: 'Leather',
+      maker: 'Georg jensen',
+      country: 'Denmark',
+      price: 9600
+    },
+    {
+      title: 'Apple watch',
+      imageUrl: 'https://i.ibb.co/xjvqvH6/apple.jpg',
+      id: '215',
+      category: 'Sports',
+      color: 'Blue',
+      strap: 'Elastic',
+      maker: 'Apple Inc',
+      country: 'USA',
+      price: 799
+    },
+    {
+      title: 'Manero Flyback',
+      imageUrl: 'https://i.ibb.co/897v1w6/04112020-Watches-01.jpg',
+      id: '216',
+      category: 'Business',
+      color: 'Silver',
+      strap: 'Steel',
+      maker: 'CARL F BUCHERER',
+      country: 'Business',
+      price: 4950
+    },
+    {
+      title: 'The Leonardo',
+      imageUrl: 'https://i.ibb.co/z7Y1RvY/Dolce-Gabbana-Manifattura-Italiana-Leonardo-3.jpg',
+      id: '217',
+      category: 'Business',
+      color: 'Brown',
+      strap: 'Leather',
+      maker: 'DOLCE&GABBANA',
+      country: 'Italy',
+      price: 67500
     },
     {
       title: 'GLASHÜTTE ORIGINAL',

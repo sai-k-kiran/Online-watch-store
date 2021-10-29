@@ -1,13 +1,17 @@
 import CartActionsTypes from './cartTypes';
+export const addProduct = (cartItem) => ({
+  type: CartActionsTypes.ADD_TO_CART,
+  payload: cartItem
+})
+export const removeItem = (item) => ({
+  type: CartActionsTypes.REMOVE_ITEM,
+  payload: item
+})
+export const removeCartItem = (item) => ({
+  type: CartActionsTypes.REMOVE_CART_ITEM,
+  payload: item
+})
 
-export const cartLength = (length) => ({
-  type: CartActionsTypes.CART_LENGTH,
-  payload: length
-})
-export  const cartItems = (items) => ({
-  type: CartActionsTypes.CART_ITEMS,
-  payload: items
-})
 export  const ItemCategories = (category) => ({
   type: CartActionsTypes.ITEM_CATEGORY,
   payload: category

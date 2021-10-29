@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'atropos/atropos.css'
 import App from './App';
-import store from './components/redux/store'
+import store, {persistor} from './components/redux/store'
+import { PersistGate } from 'redux-persist/integration/react';
 import {Provider} from 'react-redux'
-import AuthProvider from './components/auth/authContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <AuthProvider>
+      <PersistGate persistor={persistor}>
         <App />
-      </AuthProvider>
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

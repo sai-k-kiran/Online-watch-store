@@ -1,13 +1,26 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect} from 'react';
 import './auth.css'
 import Input from './input'
 import {FcGoogle} from 'react-icons/fc'
-import {useAuth} from './authContext'
-import {useHistory} from 'react-router-dom'
-import {signInWithGoogle, auth} from '../firebase/firebaseUtils';
+import {signInWithGoogle} from '../firebase/firebaseUtils';
+import { useDispatch, useSelector } from 'react-redux';
+import { signInUser } from '../redux/userRedux/userActions';
+import { useHistory } from 'react-router';
 
-const Login = () => {
+const Login = (props) => {
+    const dispatch = useDispatch()
+    const history = useHistory();
     const [data, setData] = useState({email: '', password: ''})
+    const mapState = ({user}) => ({
+        signInSuccess: user.signInSuccess
+    })
+    const {signInSuccess} = useSelector(mapState)
+
+    useEffect(()=>{
+        if(signInSuccess){
+            history.push('/')
+        }
+    }, [signInSuccess])
 
     const handleformChange = (e) => {
         const input = e.target.name
@@ -17,13 +30,7 @@ const Login = () => {
     async function handleformSubmit(e) {
         e.preventDefault()
         const {email, password} = data
-        try{
-            await auth.signInWithEmailAndPassword(email, password)
-            setData({email: '', password: ''})
-        } catch{
-            alert('Failed to sign in')
-        }
-
+        dispatch(signInUser({email, password}))
     }
 
     return ( 
@@ -48,4 +55,4 @@ const Login = () => {
      )
 }
  
-export default Login;
+export default Login

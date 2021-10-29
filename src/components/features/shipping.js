@@ -1,14 +1,18 @@
 import React, {useState} from 'react'
 import Navbar from '../home/navbar'
 import Footer from '../home/footer'
-import Input from '../auth/input'
 import './shipping.css'
-import Payment from '../cart/payment'
 import { useSelector } from 'react-redux'
+import {selectCartTotal } from '../redux/cartRedux/cartSelectors'
+import { createStructuredSelector} from 'reselect'
 
 export default function ShippingForm() {
     const [data, setData] = useState({name: '', mobile: '', address1: '', address2:''})
-    const list = useSelector(state => state.cartItems.items)
+    const mapState = createStructuredSelector({
+        totalAmount: selectCartTotal
+    })
+    const {totalAmount} = useSelector(mapState)
+
 
     const handleformchange =(e) =>{
         const { value, name } = e.target;
@@ -38,7 +42,7 @@ export default function ShippingForm() {
                <div className='order-sum'>
                    <div className='order-box'>
                     <h2>Order Summary </h2>
-                    <h2>Total : $ {list.reduce((a,v) =>  a = a + v.price, 0)}</h2>
+                    <h2>Total : $ {totalAmount}</h2>
                     <button className='master btn'>Pay with Master Card</button>
                     <button className='visa btn'>Pay with Visa</button>
                     <button className='paypal btn'>Pay with Paypal</button>

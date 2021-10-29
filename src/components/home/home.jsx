@@ -23,8 +23,8 @@ const HomePage = () => {
       </motion.div>
       <motion.div className='banner-text' variants={fadeTop} initial='hidden' animate='visible'
       transition={{duration: 1}}>
-        <h1>lorem ipsum dolor sit</h1>
-        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,<br></br> consectetur, adipisci velit...</p>
+        <h1>Exclusive collection</h1>
+        <p>Only the most decorated and sophisticated among luxury brands,<br></br> from different manufacturers across the world</p>
       </motion.div>
    </div>
    <hr className='section-line'></hr>

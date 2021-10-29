@@ -1,30 +1,40 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect} from 'react';
 import './auth.css'
 import Input from './input'
+import { useDispatch, useSelector } from 'react-redux';
+import { signUpUser} from '../redux/userRedux/userActions';
 
-import { auth, handleUserProfile } from '../firebase/firebaseUtils';
+const Register = (props) => {
+    const [data, setData] = useState({name: '', email: '', password: '', confirm: ''})
+    const [error, setError] = useState([])
+    const mapState = ({user}) => ({
+        signUpSuccess: user.signUpSuccess,
+        signUpError: user.signUpError
+    })
+    const {signUpSuccess, signUpError} = useSelector(mapState)
+    const dispatch = useDispatch()
 
-const Register = () => {
-    const [data, setData] = useState({name: '', email: '', password: '', confirm: '', error: []})
+    useEffect(()=>{
+        if(signUpSuccess){
+            props.history.push('/')
+        }
+    }, [signUpSuccess]) 
+
+    useEffect(()=>{
+        if(Array.isArray(signUpError) && signUpError.length > 0){
+            setError(signUpError)
+        }
+    }, [signUpError])
+
     const handleformChange = (e) => {
         const input = e.target.name
         const value = e.target.value
         setData({...data, [input]: value})
     }
-    async function handleformSubmit(e) {
+    function handleformSubmit(e) {
         e.preventDefault()
         const {name, email, password, confirm} = data
-        if(confirm !== password){
-            const err = ['Passwords don\'t match']
-            setData({error: err})
-        }
- 
-        try{
-            const {user} = await auth.createUserWithEmailAndPassword(email, password)
-            await handleUserProfile(user, {name})
-        } catch{
-            alert('Failed to create an account')
-        }
+        dispatch(signUpUser({name, email, password, confirm}))
     }
 
     return ( 
@@ -46,7 +56,7 @@ const Register = () => {
                         value={data.confirm} placeholder='Confirm Password'/>
                         <button className='register'>Register</button>
                     </form>
-                    {data.error.map((err, index) => {
+                    {error.map((err, index) => {
                         return(
                             <li key={index}>
                                 <p>{err}</p>

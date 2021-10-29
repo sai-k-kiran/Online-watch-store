@@ -1,20 +1,22 @@
 import React from 'react'
 import './cart.css'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { selectCartItemsCount } from '../redux/cartRedux/cartSelectors';
 
-
-export default function Payment({list}) {
+export default function Payment({cartItems}) {
+    const cart_length = useSelector(state => selectCartItemsCount(state))
 
     return ( 
         <>
             <div className='payment-block'>
-                    <h2 style={{marginBottom: '10px'}}>No. of Items: {list.length}</h2>
+                    <h2 style={{marginBottom: '10px'}}>No. of Items: {cart_length}</h2>
                     <div className='table-block'>
                         <table>
-                            {list.map((item, index) => (
+                            {cartItems.map((item, index) => (
                                 <tr key={index} style={{padding: '5px'}}>
                                     <td>
-                                        <h3>{item.name} </h3>
+                                        <h3>{item.title} </h3>
                                     </td>
                                     <td>
                                         <h3> $ {item.price}</h3>
@@ -35,12 +37,12 @@ export default function Payment({list}) {
                                 </td>
                                 <td>
                                     <h2 style={{width: '100%'}}>
-                                    $ {list.reduce((a,v) =>  a = a + v.price, 0)}</h2>
+                                    $ {cartItems.reduce((a,v) =>  a = a + v.price, 0)}</h2>
                                 </td>
                             </tr> 
                         </table>
                     </div>
-                    <Link to='/shipping' className='pay-btn'>Proceed to pay</Link>
+                   
                 </div>
         </>
     )

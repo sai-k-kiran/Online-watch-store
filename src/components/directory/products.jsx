@@ -52,7 +52,7 @@ const Products = () => {
         <>
             <Navbar />
             <div className='products-filter'>
-                <h1>Lorem ipsum dolor </h1>
+                <h1>Discover our Timeless Collection</h1>
             </div>
             <div className='filter'>
             <Filter count={menu.length} price={filter.price}
