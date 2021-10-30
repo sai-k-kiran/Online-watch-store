@@ -29,7 +29,7 @@ const CartItem = ({item}) => {
     } 
     return(
         <>
-        <ToastContainer />
+        <ToastContainer />  
         <table className='cartItem'>
             <tbody>
                 <tr>
@@ -57,3 +57,4 @@ const CartItem = ({item}) => {
     )
 }
 export default CartItem
+

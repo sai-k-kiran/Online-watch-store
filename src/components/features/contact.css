@@ -71,3 +71,22 @@ textarea {
   color: rgb(3, 130, 248);
   font-size: 50px;
 }
+@media screen and (max-width: 725px) {
+  .contact-form {
+    width: 90%;
+  }
+  .contact-form input {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .contact-info {
+    width: 90%;
+    margin: 20px 0;
+  }
+  .md-icon {
+    font-size: 30px;
+  }
+  .contact-item p {
+    font-size: 12px;
+  }
+}

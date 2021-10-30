@@ -12,7 +12,7 @@
 }
 .foot-form {
   display: flex;
-  width: 600px;
+  width: 60%;
   margin: 0 auto;
 }
 .foot-form input {
@@ -56,4 +56,52 @@
 }
 .foot-row p {
   padding: 10px 0;
+}
+@media screen and (max-width: 900px) {
+  .foot-form input {
+    padding: 10px;
+  }
+  .foot-btn {
+    padding: 0 20px;
+    height: 30px;
+    top: 6px;
+    right: 90px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .foot-form {
+    width: 90%;
+  }
+  .foot-form input {
+    padding: 8px;
+  }
+  .foot-btn {
+    padding: 0 15px;
+    height: 30px;
+    top: 4px;
+    right: 70px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .foot-title h2 {
+    font-size: 24px;
+  }
+  .foot-form input {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .foot-info {
+    width: 90%;
+  }
+  .foot-rows {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .foot-row h3 {
+    font-size: 14px;
+  }
+  .foot-row p {
+    font-size: 12px;
+  }
 }

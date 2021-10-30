@@ -575,7 +575,6 @@ const categories = [
       title: 'Sports',
       imageUrl: 'https://i.ibb.co/yWH56vr/sport.jpg',
     },
-
     {
       id: 4,
       title: 'Womens',

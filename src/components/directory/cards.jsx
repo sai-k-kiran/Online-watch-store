@@ -19,19 +19,21 @@ const Cards = ({title}) => {
                 <h1>{title}</h1>
             </div> 
             <div className='cards-menu'>
-                {categories.map(category => (
-                    <Link to={`/products/${category.title}`} key={category.id}>
-                    <div className='cards'>
-                        <div className='overlayImg' onClick={()=>handleCategory(category)}>
-                            <img className ='card-img'
-                            src={category.imageUrl} alt={category.title}/>
+                <div className='cards'>
+                    {categories.map(category => (
+                        <Link to={`/products/${category.title}`} key={category.id}>
+                        <div className='card'>
+                            <div className='overlayImg' onClick={()=>handleCategory(category)}>
+                                <img className ='card-img'
+                                src={category.imageUrl} alt={category.title}/>
+                            </div>
+                            <div className='card-title'>
+                                <h2>{category.title}</h2>
+                            </div>
                         </div>
-                        <div className='card-title'>
-                            <h2>{category.title}</h2>
-                        </div>
-                    </div>
-                    </Link>
-                ))}
+                        </Link>
+                    ))}
+                </div>
             </div>
         </>
      )

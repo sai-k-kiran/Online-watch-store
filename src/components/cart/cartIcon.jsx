@@ -11,7 +11,7 @@ function CartIcon({toggleCartHidden}) {
         <> 
             <Link className='cart-btn' to='/cart'>
                 <IoBagHandleOutline className='cart-icon' onClick={toggleCartHidden}/>
-                <span className='cart-number'>{cart_length}</span>
+              {cart_length}
             </Link>
         </>
     )

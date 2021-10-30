@@ -69,13 +69,7 @@
 .remove-btn:hover {
   background-color: rgba(255, 0, 0);
 }
-.name {
-  font-size: 16px;
-  font-weight: 600;
-}
-.price {
-  font-size: 14px;
-}
+
 .underline {
   margin: 10px 0;
   width: 100%;
@@ -118,4 +112,40 @@ table {
 }
 .io-icon-down {
   margin-bottom: -10px;
+}
+@media screen and (max-width: 1064px) {
+  .cart-block {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 930px) {
+  .cart-block {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 725px) {
+  table {
+    margin-left: 0px;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    font-size: 12px;
+  }
+  .cart-items img {
+    width: 90px;
+    height: 60px;
+  }
+  .remove-btn {
+    padding: 4px 2px;
+  }
+  .links-block {
+    text-align: center;
+  }
+  .pay-btn {
+    display: block;
+    font-size: 14px;
+    padding: 6px 8px;
+    width: 170px;
+    margin: auto auto 20px auto;
+  }
 }

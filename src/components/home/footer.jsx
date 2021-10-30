@@ -17,7 +17,7 @@ function Footer() {
                         <div className='foot-row'>
                             <h3>Contact us</h3>
                             <p>12345678-677</p>
-                            <p>paperbag@paperbag.co</p>
+                            <p>info@paperbag.co</p>
                         </div>
                         <div className='foot-row'>
                             <h3>Paperbag</h3>

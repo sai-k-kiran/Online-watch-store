@@ -13,7 +13,7 @@ export default function ShippingForm() {
     })
     const {totalAmount} = useSelector(mapState)
 
-
+ 
     const handleformchange =(e) =>{
         const { value, name } = e.target;
         setData({ [name]: value }); 

@@ -10,7 +10,7 @@ import Footer from './footer';
 
 const HomePage = () => {
     const fadeTop ={
-    hidden: {opacity: 0, y : -100},
+    hidden: {opacity: 0, y : -100}, 
     visible: {opacity: 1, y: 0},
   }
   return (

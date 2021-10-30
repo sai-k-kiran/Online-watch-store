@@ -33,6 +33,7 @@ function App(props) {
   }, [setCurrentUser])
 
   return (
+
     <Provider store={store}>
         <BrowserRouter>
           <Switch>
@@ -47,7 +48,7 @@ function App(props) {
           </Switch>
         </BrowserRouter>
   </Provider>
-  );
+   );
 }
 const mapStateToProps = ({user}) => ({
   currentUser: user.currentUser

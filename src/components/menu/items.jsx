@@ -12,11 +12,15 @@ function Items({title}) {
         <h1>{title}</h1>
       </div>
       <div className='items-menu'>
-        {featured.sections.map((item) => (
-          <Link to={`/product/${item.id}`} key={item.id} >
-              <Item title={item.title} imageUrl={item.imageUrl} />
-          </Link>
-        ))}
+        <div className='items'>
+          <div className='featured-items'>
+            {featured.sections.map((item) => (
+              <Link to={`/product/${item.id}`} key={item.id} >
+                  <Item title={item.title} imageUrl={item.imageUrl} />
+              </Link> 
+            ))}
+          </div>
+        </div>
       </div>
       </>
     )

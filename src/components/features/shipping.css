@@ -58,3 +58,21 @@
   );
   border: none;
 }
+@media screen and (max-width: 725px) {
+  .shipping-block {
+    display: block;
+    width: 85%;
+  }
+  .shipping {
+    width: 100%;
+  }
+  .order-sum {
+    width: 100%;
+  }
+  .order-box {
+    margin: 0 auto;
+  }
+  .btn {
+    margin: 20px !important;
+  }
+}

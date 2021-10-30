@@ -69,8 +69,6 @@ const Products = () => {
                             <div className='product-title'>
                                 <h2>{watch.title}</h2>
                             </div>
-                            <div className='addToCart'>
-                            </div>
                         </div>
                         </Link>
                     ))}
